@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrossel CSS</title>
+
+    <style>
+
+        :root {
+            --cor-principal: #2A5A44;
+            --cor-secundaria: #A3E743;
+            --cor-clara: #E4F0EC;
+            --cor-escura: #13261C;
+            --cor-branca: #FAFCFA;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--cor-clara);
+            color: var(--cor-escura);
+        }
+
+        header {
+            background-color: var(--cor-principal);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 30px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+        /* ESCONDE OS BOTÕES DE RADIO */
+
+        input[type="radio"] {
+            display: none;
+        }
+
+
+        /* ÁREA VISÍVEL DO CARROSSEL */
+
+        .carrossel {
+            overflow: hidden;
+
+            border: 5px solid var(--cor-principal);
+            border-radius: 15px;
+        }
+
+
+        /* CONJUNTO DOS SLIDES */
+
+        .slides {
+            display: flex;
+
+            width: 500%;
+
+            transition: transform 0.5s ease;
+        }
+
+
+        /* CADA SLIDE */
+
+        .slide {
+            width: 20%;
+            flex-shrink: 0;
+        }
+
+
+        .slide img {
+            width: 100%;
+            height: 450px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .slide figcaption {
+            background-color: var(--cor-principal);
+            color: white;
+
+            text-align: center;
+
+            padding: 15px;
+        }
+
+
+        /* MOVIMENTAÇÃO DOS SLIDES */
+
+        #slide1:checked ~ .carrossel .slides {
+            transform: translateX(0);
+        }
+
+        #slide2:checked ~ .carrossel .slides {
+            transform: translateX(-20%);
+        }
+
+        #slide3:checked ~ .carrossel .slides {
+            transform: translateX(-40%);
+        }
+
+        #slide4:checked ~ .carrossel .slides {
+            transform: translateX(-60%);
+        }
+
+        #slide5:checked ~ .carrossel .slides {
+            transform: translateX(-80%);
+        }
+
+
+        /* BOTÕES */
+
+        .botoes {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        .botoes label {
+            width: 20px;
+            height: 20px;
+
+            background-color: var(--cor-secundaria);
+
+            border-radius: 50%;
+
+            cursor: pointer;
+        }
+
+
+        .botoes label:hover {
+            background-color: var(--cor-escura);
+        }
+
+
+        footer {
+            background-color: var(--cor-escura);
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 40px;
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            .slide img {
+                height: 280px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>Galeria de Paisagens</h1>
+
+        <p>Carrossel feito apenas com HTML e CSS</p>
+
+    </header>
+
+
+    <main>
+
+        <h2>Conheça nossas paisagens</h2>
+
+
+        <!-- BOTÕES INVISÍVEIS -->
+
+        <input type="radio" name="carrossel" id="slide1" checked>
+
+        <input type="radio" name="carrossel" id="slide2">
+
+        <input type="radio" name="carrossel" id="slide3">
+
+        <input type="radio" name="carrossel" id="slide4">
+
+        <input type="radio" name="carrossel" id="slide5">
+
+
+        <!-- CARROSSEL -->
+
+        <section class="carrossel">
+
+            <div class="slides">
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://dasports.com.br/cdn/shop/files/camisa-do-palmeiras-iii-manga-longa-retro-2009-2616877.jpg?v=1756699190"
+                        alt="camisa manga longa"
+                    >
+
+                    <figcaption>
+                        camisa do palmeiras manga longa retro 2009, goleiro marcos.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://images.puma.com/image/upload/f_auto,q_auto,w_2000,b_rgb:FAFAFA/global/787208/99/fnd/BRA/fmt/png"
+                        alt="camisa atual"
+                    >
+
+                    <figcaption>
+                        camisa do palmeiras puma 2026, modelo jogador.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://images.tcdn.com.br/img/img_prod/1274939/camisa_palmeiras_jogo_de_despedida_de_marcos_numero_20_1267_1_32b4a7d3e54c08943a2ab3e2b68cd0cc.jpeg"
+                        alt="camisa despedida de marcão"
+                    >
+
+                    <figcaption>
+                        camisa palmeiras 2012 despedida de goleiro marcos.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://acdn-us.mitiendanube.com/stores/004/080/153/products/4adbf7fc-7364da533a343d3a0217284880071059-640-0.webp"
+                        alt="camisa parmalat"
+                    >
+
+                    <figcaption>
+                        camisa palmeiras retro 1997-1998.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://images.tcdn.com.br/img/img_prod/1445347/camisa_palmeiras_puma_2026_uniforme_2_torcedor_masculino_1899_1_85c6292fff3fb7127ea9bcb66b49e999.jpg"
+                        alt="camisa secundaria"
+                    >
+
+                    <figcaption>
+                        camisa branca torcedor 2026.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTÕES VISÍVEIS -->
+
+        <div class="botoes">
+
+            <label for="slide1"></label>
+
+            <label for="slide2"></label>
+
+            <label for="slide3"></label>
+
+            <label for="slide4"></label>
+
+            <label for="slide5"></label>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>Desenvolvido para estudo de HTML e CSS</p>
+
+    </footer>
+
+</body>
+
+</html>
+
+
